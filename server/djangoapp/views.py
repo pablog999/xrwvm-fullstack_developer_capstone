@@ -22,6 +22,7 @@ logger = logging.getLogger(__name__)
 
 # Create your views here.
 
+
 # Create a `login_request` view to handle sign in request
 @csrf_exempt
 def login_user(request):
@@ -40,6 +41,11 @@ def login_user(request):
 
 # Create a `logout_request` view to handle sign out request
 # def logout_request(request):
+@csrf_exempt
+def logout_user(request):
+    logout(request)  # Terminate user session
+    data = {"userName": ""}  # Return empty username
+    return JsonResponse(data)
 # ...
 
 # Create a `registration` view to handle sign up request

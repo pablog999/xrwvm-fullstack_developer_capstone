@@ -9,6 +9,8 @@ app_name = 'djangoapp'
 urlpatterns = [
     # # path for registration
     path(route='login', view=views.login_user, name='login'),
+    path(route='logout', view=views.logout_user, name='logout'),
+
        # path for dealer reviews view
 
     # path for add a review view
