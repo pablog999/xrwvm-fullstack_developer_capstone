@@ -1,6 +1,6 @@
 from django.db import models
-from django.utils.timezone import now
 from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 class CarMake(models.Model):
     name = models.CharField(max_length=100)
@@ -9,7 +9,8 @@ class CarMake(models.Model):
     established = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        return self.name  # Return the name as the string representation
+        return self.name
+
 
 class CarModel(models.Model):
     CAR_TYPES = [
@@ -27,9 +28,8 @@ class CarModel(models.Model):
         default=2023,
         validators=[MaxValueValidator(2023), MinValueValidator(2015)]
     )
-    # Optional fields
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     color = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.car_make} {self.name}"  # Print both make and model
+        return f"{self.car_make} {self.name}"
